@@ -52,9 +52,11 @@ class TencentSpeech2TextModel(Speech2TextModel):
         app_id = credentials["app_id"]
         secret_id = credentials["secret_id"]
         secret_key = credentials["secret_key"]
-        voice_format = file.voice_format if hasattr(file, "voice_format") else "m4a"
+        engine_type = credentials["engine_type"] if "engine_type" in credentials else "16k_zh_large"
+        voice_format = credentials["voice_format"] if "voice_format" in credentials else "m4a"
+        voice_format = file.voice_format if hasattr(file, "voice_format") else voice_format
         tencent_voice_recognizer = FlashRecognizer(app_id, Credential(secret_id, secret_key))
-        resp = tencent_voice_recognizer.recognize(FlashRecognitionRequest(voice_format), file)
+        resp = tencent_voice_recognizer.recognize(FlashRecognitionRequest(voice_format, engine_type), file)
         resp = json.loads(resp)
         code = resp["code"]
         message = resp["message"]

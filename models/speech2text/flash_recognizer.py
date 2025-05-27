@@ -14,7 +14,7 @@ class Credential:
 
 
 class FlashRecognitionRequest:
-    def __init__(self, voice_format="mp3", engine_type="16k_zh"):
+    def __init__(self, voice_format="mp3", engine_type="16k_zh_large"):
         self.engine_type = engine_type
         self.speaker_diarization = 0
         self.hotword_id = ""

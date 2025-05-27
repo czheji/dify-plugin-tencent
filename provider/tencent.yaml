@@ -54,5 +54,41 @@ provider_credential_schema:
     required: true
     type: secret-input
     variable: secret_key
+  - label:
+      en_US: engine type
+      zh_Hans: 引擎类型
+    options:
+    - label:
+        en_US: 16k_zh
+        zh_Hans: 16k_zh 中文通用
+      value: 16k_zh
+    - label:
+        en_US: 16k_zh_large
+        zh_Hans: 16k_zh_large 普方英大模型引擎【大模型版】 
+      value: 16k_zh_large
+    placeholder:
+      en_US: select the engine type of your Tencent Cloud ASR service
+      zh_Hans: 在此输入您的腾讯语音识别服务的引擎类型
+    type: select
+    required: true
+    variable: engine_type
+  - label:
+      en_US: voice format
+      zh_Hans: 音频格式
+    options:
+    - label:
+        en_US: mp3
+        zh_Hans: mp3
+      value: mp3
+    - label:
+        en_US: m4a
+        zh_Hans: m4a
+      value: m4a
+    placeholder:
+      en_US: select the voice format of your Tencent Cloud ASR service
+      zh_Hans: 在此输入您的腾讯语音识别服务的音频格式
+    type: select
+    required: false
+    variable: voice_format
 supported_model_types:
 - speech2text
